@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0"
+            prefWidth="539.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Controller">
+    <MenuBar prefHeight="311.0" prefWidth="539.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Menu text="_File">
+            <MenuItem onAction="#closeMi" text="_Close">
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                </accelerator>
+            </MenuItem>
+        </Menu>
+        <Menu text="_Edit">
+            <MenuItem fx:id="reset" mnemonicParsing="false" onAction="#resetMi" text="Reset"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" onAction="#aboutMi" text="About"/>
+        </Menu>
+    </MenuBar>
+    <VBox layoutX="7.0" layoutY="32.0" prefHeight="230.0" prefWidth="157.0">
+        <Button id="abtn" fx:id="abtn" mnemonicParsing="false" onAction="#aTimer" prefHeight="80.0" prefWidth="150.0"
+                text="Automatic Timer">
+            <VBox.margin>
+                <Insets bottom="15.0" top="10.0"/>
+            </VBox.margin>
+        </Button>
+        <Button id="hbtn" fx:id="hbtn" mnemonicParsing="false" onAction="#hTimer" prefHeight="80.0" prefWidth="150.0"
+                text="3 Hour Timer">
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </Button>
+    </VBox>
+    <TextArea fx:id="ta" editable="false" layoutX="164.0" layoutY="37.0" prefHeight="220.0" prefWidth="311.0"
+              promptText="promptText" text="test" wrapText="true" AnchorPane.bottomAnchor="6.0"
+              AnchorPane.leftAnchor="164.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="37.0">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </TextArea>
+    <Label id="cl" fx:id="cl" alignment="TOP_RIGHT" layoutX="386.0" layoutY="37.0" prefHeight="37.0" prefWidth="144.0"
+           style="-fx-font-size: 22; -fx-text-fill: indigo;" text="ClockLabel" textAlignment="RIGHT" wrapText="true">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Label>
+    <Label id="cl2" fx:id="cl2" alignment="TOP_LEFT" layoutX="164.0" layoutY="156.0" prefHeight="108.0"
+           prefWidth="180.0" style="-fx-font-size: 22; -fx-text-fill: indigo;" textAlignment="CENTER" wrapText="true">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Label>
+</AnchorPane>
