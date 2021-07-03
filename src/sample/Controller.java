@@ -186,7 +186,7 @@ public class Controller implements Initializable {
         //System.out.println("test");
         t4 = new Timeline(
                 new KeyFrame(Duration.hours(3),
-//                        new KeyFrame(Duration.seconds(10),
+//                        new KeyFrame(Duration.seconds(20),
                         event -> {
                             playSound();
                             Controller.i++;
@@ -203,9 +203,9 @@ public class Controller implements Initializable {
         t4.setCycleCount(4);
         t4.play();
         Thread thr1 = new Thread(() -> {
-            class quora extends TimerTask {
+            class AppExit extends TimerTask {
                 public void run() {
-                    System.out.println("Hello coders");
+//                    System.out.println("Hello coders");
                     Date da = new Date(System.currentTimeMillis());
                     SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
                     String s9 = sdf1.format(da);
@@ -224,7 +224,7 @@ public class Controller implements Initializable {
                 }
             }
             Timer timer = new Timer();
-            timer.schedule(new quora(), 0, 60000);
+            timer.schedule(new AppExit(), 0, 60000);
         });
         thr1.start();
 
@@ -268,8 +268,12 @@ public class Controller implements Initializable {
         String s1 = sdf.format(dd1);
         String h1 = "Start task: " + s + "\n" + "Next task: " + s1;
         String s0 = "Task 1: completed.";
+        String s03 = "Task 1: running.";
         String s01 = "Task 2: completed.";
+        String t2r = "Task 2: running.";
         String s02 = "Task 3: completed.";
+        String t3r = "Task 3: running.";
+        String t4r = "Task 4: running.";
         ++i1;
         String s8;
         if (i1 == 1) {
@@ -280,20 +284,20 @@ public class Controller implements Initializable {
             this.s6 = sdf.format(d6);
             Date d7 = new Date(System.currentTimeMillis() + 43200000L);
             this.s7 = sdf.format(d7);
-            this.h2 = s0 + "\n" + "Task 2: " + s8 + "\n" + "Task 3: " + this.s5 + "\n" + "Task 4: " + this.s6 + "\n" + "Task 5: " + this.s7;
+            this.h2 = s03 + "\n" + "Task 2: " + s8 + "\n" + "Task 3: " + this.s5 + "\n" + "Task 4: " + this.s6 + "\n" + "Task 5: " + this.s7;
         }
         if (i1 == 2) {
-            this.h2 = s0 + "\n" + s01 + "\n" + "Task 3: " + this.s5 + "\n" + "Task 4: " + this.s6 + "\n" + "Task 5: " + this.s7;
+            this.h2 = s0 + "\n" + t2r + "\n" + "Task 3: " + this.s5 + "\n" + "Task 4: " + this.s6 + "\n" + "Task 5: " + this.s7;
         }
         if (i1 == 3) {
-            this.h2 = s0 + "\n" + s01 + "\n" + s02 + "\n" + "Task 4: " + this.s6 + "\n" + "Task 5: " + this.s7;
+            this.h2 = s0 + "\n" + s01 + "\n" + t3r + "\n" + "Task 4: " + this.s6 + "\n" + "Task 5: " + this.s7;
         }
         if (i1 == 4) {
-            this.h2 = s0 + "\n" + s01 + "\n" + s02 + "\n" + "Task 4: completed." + "\n" + "Task 5: " + this.s7;
+            this.h2 = s0 + "\n" + s01 + "\n" + s02 + "\n" + t4r + "\n" + "Task 5: " + this.s7;
         }
-        if (i1 == 5) {
-            this.h2 = s0 + "\n" + s01 + "\n" + s02 + "\n" + "Task 4: completed." + "\n" + "Task 5: completed";
-        }
+//        if (i1 == 5) {
+//            this.h2 = s0 + "\n" + s01 + "\n" + s02 + "\n" + "Task 4: completed." + "\n" + "Task 5: completed";
+//        }
         this.abtn.setDisable(true);
         this.hbtn.setDisable(true);
         this.reset.setDisable(false);
