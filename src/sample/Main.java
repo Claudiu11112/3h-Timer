@@ -17,6 +17,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.util.Objects;
 
 public class Main extends Application {
     private static final int PORT = 12546;
@@ -34,7 +35,7 @@ public class Main extends Application {
         this.b = true;
         Platform.setImplicitExit(false);
         ps.setTitle("3h Timer");
-        Parent root = FXMLLoader.load(this.getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("sample.fxml")));
         ps.setScene(new Scene(root, 539.0, 311.0));
         ps.setResizable(false);
         ps.getIcons().add(new Image("/sample/timer.png"));
@@ -47,7 +48,7 @@ public class Main extends Application {
         try {
            // new ServerSocket(PORT, 10, InetAddress.getLocalHost());
             ServerSocket ss = new ServerSocket(PORT, 10, InetAddress.getLocalHost());
-            //System.out.println(ss);
+            System.out.println(ss);
             launch(args);
         } catch (Exception e) {
             int i = JOptionPane.showConfirmDialog(null, "The program is already running.",
@@ -67,7 +68,7 @@ public class Main extends Application {
 
             try {
                 // URL url = System.class.getResource("/sample/16x16-t-icon.png");
-                bi = ImageIO.read(getClass().getResourceAsStream("/sample/16x16-t-icon.png"));
+                bi = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/sample/16x16-t-icon.png")));
             } catch (IOException ioe) {
                 System.err.println("Icon it is not found");
             }
@@ -92,8 +93,8 @@ public class Main extends Application {
             this.ti.addActionListener(al);
             try {
                 st.add(this.ti);
-            } catch (AWTException awte) {
-                awte.printStackTrace();
+            } catch (AWTException e) {
+                e.printStackTrace();
             }
         }
     }

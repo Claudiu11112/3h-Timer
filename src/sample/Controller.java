@@ -170,8 +170,13 @@ public class Controller implements Initializable {
 
     private void playSound() {
         URL url = this.getClass().getResource("Alarm01.wav");
-        AudioClip ac = new AudioClip(url.toString());
-        ac.play();
+        AudioClip ac = null;
+        if (url != null) {
+            ac = new AudioClip(url.toString());
+        }
+        if (ac != null) {
+            ac.play();
+        }
     }
 
     @FXML
@@ -197,8 +202,34 @@ public class Controller implements Initializable {
         );
         t4.setCycleCount(4);
         t4.play();
-
         Thread thr1 = new Thread(() -> {
+            class quora extends TimerTask {
+                public void run() {
+                    System.out.println("Hello coders");
+                    Date da = new Date(System.currentTimeMillis());
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
+                    String s9 = sdf1.format(da);
+                    if (s9.equals("21") || s9.equals("22") || s9.equals("23")) {
+//                    Alert a = new Alert(AlertType.INFORMATION);
+//                    a.setTitle("Timing completed!");
+//                    a.setHeaderText("Program will be shut down automatically.");
+//                    a.setContentText("Development: Stark C.\n" + "Java 9 Dev.");
+//                    a.initModality(Modality.APPLICATION_MODAL);
+//                    a.initOwner(Main.getStage());
+//                    a.showAndWait();
+                        System.gc();
+                        Platform.exit();
+                        System.exit(0);
+                    }
+                }
+            }
+            Timer timer = new Timer();
+            timer.schedule(new quora(), 0, 60000);
+        });
+        thr1.start();
+
+
+        /*Thread thr1 = new Thread(() -> {
             while (true) {
                 Date da = new Date(System.currentTimeMillis());
                 SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
@@ -210,7 +241,7 @@ public class Controller implements Initializable {
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }
-                System.out.println(s9);
+//                System.out.println(s9);
                 if (s9.equals("21") || s9.equals("22") || s9.equals("23")) {
 //                    Alert a = new Alert(AlertType.INFORMATION);
 //                    a.setTitle("Timing completed!");
@@ -225,7 +256,7 @@ public class Controller implements Initializable {
                 }
             }
         });
-        thr1.start();
+        thr1.start();*/
     }
 
     private void aTimerTextArea() {
