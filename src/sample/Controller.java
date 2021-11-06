@@ -111,7 +111,7 @@ public class Controller implements Initializable {
     public void aboutMi() {
         Alert a = new Alert(AlertType.INFORMATION);
         a.setTitle("About Timer");
-        a.setHeaderText("Timer v.2.8");
+        a.setHeaderText("Timer v.2.9");
         Image i = new Image("/sample/timer.png");
         ImageView iv = new ImageView(i);
         a.setGraphic(iv);
