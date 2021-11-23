@@ -22,6 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import static java.time.temporal.ChronoUnit.MINUTES;
 
@@ -265,10 +266,15 @@ public class Controller implements Initializable {
                 String s9 = sdf1.format(da);
                 //System.out.println(s9);
 
+//                try {
+//                    Thread.sleep(60_000L);
+//                } catch (InterruptedException ie) {
+//                    ie.printStackTrace();
+//                }
                 try {
-                    Thread.sleep(60_000L);
+                    TimeUnit.SECONDS.sleep(60);
                 } catch (InterruptedException ie) {
-                    ie.printStackTrace();
+                    Thread.currentThread().interrupt();
                 }
 //                System.out.println(s9);
                 if (s9.equals("21") || s9.equals("22") || s9.equals("23")) {
