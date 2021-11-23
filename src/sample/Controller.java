@@ -284,6 +284,7 @@ public class Controller implements Initializable {
 //                    a.setContentText("Development: Stark C.\n" + "Java 9 Dev.");
 //                    a.initModality(Modality.APPLICATION_MODAL);
 //                    a.initOwner(Main.getStage());
+
 //                    a.showAndWait();
                     System.gc();
                     Platform.exit();
