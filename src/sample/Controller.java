@@ -25,6 +25,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 import static java.time.temporal.ChronoUnit.MINUTES;
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 public class Controller implements Initializable {
     private static int i = 0;
@@ -98,7 +99,8 @@ public class Controller implements Initializable {
             i = 0;
             i1 = 0;
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            log.print("Ops!");
         }
     }
 
@@ -158,22 +160,22 @@ public class Controller implements Initializable {
         t3 = new Timeline(
                 new KeyFrame(Duration.millis(500),
                         event -> {
-//                            Date da = new Date(System.currentTimeMillis());
-//                            SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
-//                            String s2 = sdf2.format(da);
-//                            LocalTime l1 = LocalTime.parse(s2);
-//                            System.out.println(l1);
-//                            String s3 = sdf2.format(dt);
-//                            System.out.println(s3);
-//                            LocalTime l2 = LocalTime.parse(s3);
-//                            long lm = MINUTES.between(l1, l2);
-//                            System.out.println(lm);
-//                            System.out.println(l1.until(l2, MINUTES));
-//                            System.out.println(MINUTES.between(l1, l2));
+    /*                        Date da = new Date(System.currentTimeMillis());
+                            SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
+                            String s2 = sdf2.format(da);
+                            LocalTime l1 = LocalTime.parse(s2);
+                            System.out.println(l1);
+                            String s3 = sdf2.format(dt);
+                            System.out.println(s3);
+                            LocalTime l2 = LocalTime.parse(s3);
+                            long lm = MINUTES.between(l1, l2);
+                            System.out.println(lm);
+                            System.out.println(l1.until(l2, MINUTES));
+                            System.out.println(MINUTES.between(l1, l2));*/
                             LocalDateTime now = LocalDateTime.now();
                             long diff = MINUTES.between(now, nowPlus);
-//                            System.out.println(now);
-//                            System.out.println(nowPlus);
+  /*                          System.out.println(now);
+                            System.out.println(nowPlus);*/
                             cl2.setStyle("-fx-font-size: 17;-fx-text-fill: indigo;");
                             cl2.setText("   Remaining time: \n" + diff + " minute \n");
 
@@ -230,31 +232,31 @@ public class Controller implements Initializable {
         );
         t4.setCycleCount(4);
         t4.play();
-//        Thread thr1 = new Thread(() -> {
-//            class AppExit extends TimerTask {
-//                public void run() {
-////                    System.out.println("Hello coders");
-//                    Date da = new Date(System.currentTimeMillis());
-//                    SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
-//                    String s9 = sdf1.format(da);
-//                    if (s9.equals("21") || s9.equals("22") || s9.equals("23")) {
-////                    Alert a = new Alert(AlertType.INFORMATION);
-////                    a.setTitle("Timing completed!");
-////                    a.setHeaderText("Program will be shut down automatically.");
-////                    a.setContentText("Development: Stark C.\n" + "Java 9 Dev.");
-////                    a.initModality(Modality.APPLICATION_MODAL);
-////                    a.initOwner(Main.getStage());
-////                    a.showAndWait();
-//                        System.gc();
-//                        Platform.exit();
-//                        System.exit(0);
-//                    }
-//                }
-//            }
-//            Timer timer = new Timer();
-//            timer.schedule(new AppExit(), 0, 60000);
-//        });
-//        thr1.start();
+/*        Thread thr1 = new Thread(() -> {
+            class AppExit extends TimerTask {
+                public void run() {
+//                    System.out.println("Hello coders");
+                    Date da = new Date(System.currentTimeMillis());
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
+                    String s9 = sdf1.format(da);
+                    if (s9.equals("21") || s9.equals("22") || s9.equals("23")) {
+//                    Alert a = new Alert(AlertType.INFORMATION);
+//                    a.setTitle("Timing completed!");
+//                    a.setHeaderText("Program will be shut down automatically.");
+//                    a.setContentText("Development: Stark C.\n" + "Java 9 Dev.");
+//                    a.initModality(Modality.APPLICATION_MODAL);
+//                    a.initOwner(Main.getStage());
+//                    a.showAndWait();
+                        System.gc();
+                        Platform.exit();
+                        System.exit(0);
+                    }
+                }
+            }
+            Timer timer = new Timer();
+            timer.schedule(new AppExit(), 0, 60000);
+        });
+        thr1.start();*/
         closeApp();
     }
 
@@ -264,13 +266,13 @@ public class Controller implements Initializable {
                 Date da = new Date(System.currentTimeMillis());
                 SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
                 String s9 = sdf1.format(da);
-                //System.out.println(s9);
+  /*              System.out.println(s9);
 
-//                try {
-//                    Thread.sleep(60_000L);
-//                } catch (InterruptedException ie) {
-//                    ie.printStackTrace();
-//                }
+                try {
+                    Thread.sleep(60_000L);
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                }*/
                 try {
                     TimeUnit.SECONDS.sleep(60);
                 } catch (InterruptedException ie) {
@@ -278,14 +280,14 @@ public class Controller implements Initializable {
                 }
 //                System.out.println(s9);
                 if (s9.equals("21") || s9.equals("22") || s9.equals("23")) {
-//                    Alert a = new Alert(AlertType.INFORMATION);
-//                    a.setTitle("Timing completed!");
-//                    a.setHeaderText("Program will be shut down automatically.");
-//                    a.setContentText("Development: Stark C.\n" + "Java 9 Dev.");
-//                    a.initModality(Modality.APPLICATION_MODAL);
-//                    a.initOwner(Main.getStage());
+/*                    Alert a = new Alert(AlertType.INFORMATION);
+                    a.setTitle("Timing completed!");
+                    a.setHeaderText("Program will be shut down automatically.");
+                    a.setContentText("Development: Stark C.\n" + "Java 9 Dev.");
+                    a.initModality(Modality.APPLICATION_MODAL);
+                    a.initOwner(Main.getStage());
 
-//                    a.showAndWait();
+                    a.showAndWait();*/
                     System.gc();
                     Platform.exit();
                     System.exit(0);
@@ -331,9 +333,9 @@ public class Controller implements Initializable {
         if (i1 == 4) {
             this.h2 = s0 + "\n" + s01 + "\n" + s02 + "\n" + t4r + "\n" + "Task 5: " + this.s7;
         }
-//        if (i1 == 5) {
-//            this.h2 = s0 + "\n" + s01 + "\n" + s02 + "\n" + "Task 4: completed." + "\n" + "Task 5: completed";
-//        }
+/*        if (i1 == 5) {
+            this.h2 = s0 + "\n" + s01 + "\n" + s02 + "\n" + "Task 4: completed." + "\n" + "Task 5: completed";
+        }*/
         this.abtn.setDisable(true);
         this.hbtn.setDisable(true);
         this.reset.setDisable(false);

@@ -19,6 +19,8 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.util.Objects;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
 public class Main extends Application {
     private static final int PORT = 12546;
     private TrayIcon ti;
@@ -40,8 +42,8 @@ public class Main extends Application {
         ps.setResizable(false);
         ps.getIcons().add(new Image("/sample/timer.png"));
         this.createI(ps);
-
         ps.show();
+//        System.out.println(System.getProperties());
     }
 
     public static void main(String[] args) {
@@ -54,7 +56,8 @@ public class Main extends Application {
             int i = JOptionPane.showConfirmDialog(null, "The program is already running.",
                     "Information", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
             if (i == 0) {
-                e.printStackTrace();
+//                e.printStackTrace();
+                log.print("Ops!");
                 System.out.println("The program is already running");
                 System.exit(0);
             }
@@ -94,7 +97,8 @@ public class Main extends Application {
             try {
                 st.add(this.ti);
             } catch (AWTException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
+                log.print("Ops!");
             }
         }
     }
